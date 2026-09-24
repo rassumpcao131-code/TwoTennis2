@@ -1,0 +1,35 @@
+TWOTENNIS2 - VERSAO 1.5 SMOOTH60
+
+OBJETIVO
+- Manter a aparencia neon e os eventos do jogo.
+- Buscar 60 FPS estaveis, inclusive em telas de 90/120 Hz.
+- Reduzir travadas e pausas pequenas durante colisoes e explosoes.
+
+OTIMIZACOES APLICADAS
+- Renderizacao por GPU com HardwareCanvas no Android 8 ou superior.
+- Retorno automatico ao Canvas tradicional se o aparelho nao aceitar GPU.
+- Modo rapido com resolucao interna adaptativa e imagem ampliada para a tela.
+- Conversao dos toques para que as raquetes continuem exatamente sob o dedo.
+- Meta de 60 FPS em todos os modos; removido o alvo irregular de 45 FPS.
+- Solicitacao de 60 FPS ao Android em telas de 90/120 Hz.
+- Fundo estatico em cache 1:1 no modo rapido.
+- Superficie RGB 565 no modo rapido para reduzir uso de memoria e banda.
+- Reaproveitamento das particulas para evitar travadas do coletor de memoria.
+- Menos subpassos de colisao apenas no modo rapido, preservando a fisica.
+- Thread do jogo com prioridade de exibicao.
+
+VERSAO
+- versionCode: 6
+- versionName: 1.5-smooth60
+
+PARA GERAR O APK
+1. Atualize o projeto no GitHub.
+2. Abra a guia Actions/Acoes.
+3. Execute o fluxo "Gerar APK do TwoTennis2".
+4. Baixe o artefato TwoTennis2-APK.
+5. Extraia o ZIP e instale app-debug.apk no celular.
+
+OBSERVACAO
+O modo rapido continua com todos os eventos e com a mesma jogabilidade. A
+resolucao interna e reduzida somente o necessario, enquanto o Android amplia
+a arena para preencher a tela inteira.

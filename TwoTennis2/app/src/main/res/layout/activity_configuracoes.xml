@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_configuracoes"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingTop="24dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="32dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pixelify_sans"
+            android:gravity="center"
+            android:letterSpacing="0.08"
+            android:shadowColor="#9831D7FF"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="12"
+            android:text="CONFIGURAÇÕES DA ARENA"
+            android:textColor="#D7F8FF"
+            android:textSize="25sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:gravity="center"
+            android:text="Monte a partida do seu jeito"
+            android:textColor="#A7B8CC"
+            android:textSize="13sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:background="@drawable/painel_neon_ciano"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pixelify_sans"
+                android:text="REGRAS DA PARTIDA"
+                android:textColor="#54E1FF"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="Pontuação máxima"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/textoPontosSelecionados"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pixelify_sans"
+                android:gravity="end"
+                android:text="10 PONTOS"
+                android:textColor="#7DEAFF"
+                android:textSize="17sp" />
+
+            <SeekBar
+                android:id="@+id/barraPontos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="25"
+                android:progress="5"
+                android:progressTint="#31D7FF"
+                android:thumbTint="#B9F5FF" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="Velocidade inicial"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/textoVelocidadeSelecionada"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pixelify_sans"
+                android:gravity="end"
+                android:text="NORMAL  •  x1.00"
+                android:textColor="#7DEAFF"
+                android:textSize="17sp" />
+
+            <SeekBar
+                android:id="@+id/barraVelocidade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="3"
+                android:progress="1"
+                android:progressTint="#31D7FF"
+                android:thumbTint="#B9F5FF" />
+
+            <Switch
+                android:id="@+id/switchModoRapido"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:buttonTint="#31D7FF"
+                android:fontFamily="@font/pixelify_sans"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:text="MODO RÁPIDO"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:thumbTint="#D7F8FF"
+                android:trackTint="#5E31D7FF" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Reduz partículas, rastros e animações do cenário para melhorar o FPS."
+                android:textColor="#91A7BC"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/painel_neon_rosa"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pixelify_sans"
+                android:text="EVENTOS ATIVOS"
+                android:textColor="#FF68C5"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Desmarque tudo para uma partida clássica."
+                android:textColor="#B9A4B5"
+                android:textSize="12sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/botao_neon_ciano"
+                    android:fontFamily="@font/pixelify_sans"
+                    android:onClick="selecionarTodosEventos"
+                    android:text="TODOS"
+                    android:textColor="#FFFFFF" />
+
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="1dp" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/botao_neon_rosa"
+                    android:fontFamily="@font/pixelify_sans"
+                    android:onClick="limparEventos"
+                    android:text="NENHUM"
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
+
+            <CheckBox android:id="@+id/checkDuplicacao" style="@style/EventoArena" android:text="Duplicação simples" />
+            <CheckBox android:id="@+id/checkReversao" style="@style/EventoArena" android:text="Reversão" />
+            <CheckBox android:id="@+id/checkTurbo" style="@style/EventoArena" android:text="Turbo aleatório" />
+            <CheckBox android:id="@+id/checkCongelamento" style="@style/EventoArena" android:text="Congelamento quântico" />
+            <CheckBox android:id="@+id/checkFantasma" style="@style/EventoArena" android:text="Bola fantasma" />
+            <CheckBox android:id="@+id/checkPortais" style="@style/EventoArena" android:text="Portais" />
+            <CheckBox android:id="@+id/checkOrbita" style="@style/EventoArena" android:text="Órbita crítica" />
+            <CheckBox android:id="@+id/checkCadeia" style="@style/EventoArena" android:text="Duplicação em cadeia" />
+            <CheckBox android:id="@+id/checkEletrico" style="@style/EventoArena" android:text="Ligação elétrica (precisa de 2 bolas)" />
+            <CheckBox android:id="@+id/checkFusao" style="@style/EventoArena" android:text="Fusão (precisa de 2 bolas)" />
+            <CheckBox android:id="@+id/checkSupernova" style="@style/EventoArena" android:text="Supernova" />
+            <CheckBox android:id="@+id/checkCurvas" style="@style/EventoArena" android:text="Curvas com ponto de atração" />
+            <CheckBox android:id="@+id/checkVariacoes" style="@style/EventoArena" android:text="Mudanças aleatórias de velocidade" />
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/botao_neon_ciano"
+            android:fontFamily="@font/pixelify_sans"
+            android:onClick="salvarConfiguracoes"
+            android:text="SALVAR E VOLTAR"
+            android:textColor="#FFFFFF"
+            android:textSize="17sp" />
+    </LinearLayout>
+</ScrollView>
