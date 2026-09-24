@@ -21,7 +21,7 @@ jobs:
         id: projeto
         shell: bash
         run: |
-          WRAPPER="$(find . -name gradlew -type f | head -n 1)"
+          WRAPPER="$(find . -name gradlew -type f -print -quit)"
 
           if [ -z "$WRAPPER" ]; then
             echo "ERRO: arquivo gradlew não encontrado."
@@ -43,6 +43,8 @@ jobs:
 
       - name: Preparar Android SDK
         uses: android-actions/setup-android@v3
+        with:
+          packages: platform-tools
 
       - name: Instalar Android API 36
         run: sdkmanager "platforms;android-36" "build-tools;36.0.0"
