@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:fillViewport="true" android:background="@drawable/bg_menu_arena">
+ <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="vertical" android:gravity="center" android:padding="28dp">
+  <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+    android:text="TWO TENNIS" android:textColor="#7CE5FF" android:textSize="12sp" android:letterSpacing="0.2" />
+  <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_marginTop="14dp" android:text="ESCOLHA SEU\nCONFRONTO" android:gravity="center"
+    android:textSize="29sp" android:textStyle="bold" android:textColor="#F0F7FF" />
+  <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_marginTop="10dp" android:text="Desafie a máquina ou um amigo na mesma tela."
+    android:gravity="center" android:textSize="13sp" android:textColor="#ABC1D5" />
+  <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_marginTop="28dp" android:padding="24dp" android:orientation="vertical"
+    android:background="@drawable/painel_neon_ciano" android:foreground="?android:attr/selectableItemBackground"
+    android:clickable="true" android:focusable="true" android:onClick="btn1Player"
+    android:contentDescription="Um jogador, enfrentar o computador">
+   <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:text="01   /   SOLO" android:textColor="#61E2FF" android:textSize="12sp" android:letterSpacing="0.12" />
+   <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_marginTop="12dp" android:text="VOCÊ × CPU" android:textColor="#E4F8FF" android:textSize="25sp" android:textStyle="bold" />
+   <TextView android:id="@+id/resumoCpu" android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_marginTop="8dp" android:text="Dificuldade: Normal" android:textColor="#B1D5E7" android:textSize="13sp" />
+   <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_marginTop="16dp" android:text="ENTRAR NA ARENA →" android:textColor="#75E6FF" android:textSize="14sp" />
+  </LinearLayout>
+  <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_marginTop="16dp" android:padding="24dp" android:orientation="vertical"
+    android:background="@drawable/painel_neon_rosa" android:foreground="?android:attr/selectableItemBackground"
+    android:clickable="true" android:focusable="true" android:onClick="btn2Player"
+    android:contentDescription="Dois jogadores na mesma tela">
+   <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:text="02   /   DUELO LOCAL" android:textColor="#FF7DCB" android:textSize="12sp" android:letterSpacing="0.12" />
+   <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_marginTop="12dp" android:text="VOCÊ × AMIGO" android:textColor="#FFE4F4" android:textSize="25sp" android:textStyle="bold" />
+   <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_marginTop="8dp" android:text="Cada jogador controla uma ponta do celular."
+    android:textColor="#D8B9CD" android:textSize="13sp" />
+   <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_marginTop="16dp" android:text="COMEÇAR DUELO →" android:textColor="#FF8AD3" android:textSize="14sp" />
+  </LinearLayout>
+  <Button android:layout_width="match_parent" android:layout_height="50dp" android:layout_marginTop="20dp"
+    android:text="DIFICULDADE E EVENTOS" android:textColor="#DEF7FF" android:background="@drawable/botao_neon_ciano"
+    android:backgroundTint="@null" android:onClick="btnConfiguracoes" />
+  <Button android:layout_width="wrap_content" android:layout_height="48dp"
+    android:text="VOLTAR" android:textColor="#A2B7CC" android:background="@android:color/transparent" android:onClick="btnVoltar" />
+ </LinearLayout>
+</ScrollView>

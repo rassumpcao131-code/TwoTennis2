@@ -1,0 +1,145 @@
+package com.example.twotennis;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+
+final class ConfiguracoesJogo {
+
+    static final int TOTAL_EVENTOS = 23;
+    static final int EVENTO_DUPLICACAO = 0;
+    static final int EVENTO_REVERSAO = 1;
+    static final int EVENTO_TURBO = 2;
+    static final int EVENTO_CONGELAMENTO = 3;
+    // Indice 4 reservado: evento fantasma removido, preservando preferencias antigas.
+    static final int EVENTO_PORTAIS = 5;
+    static final int EVENTO_ORBITA = 6;
+    static final int EVENTO_CADEIA = 7;
+    static final int EVENTO_ELETRICO = 8;
+    static final int EVENTO_FUSAO = 9;
+    static final int EVENTO_SUPERNOVA = 10;
+    static final int EVENTO_BOLA_VIVA = 11;
+
+    static final int EVENTO_REBOBINAR = 12;
+    static final int EVENTO_RELOGIO = 13;
+    static final int EVENTO_CACA = 14;
+    static final int EVENTO_SALTO = 15;
+    static final int EVENTO_RICOCHETE = 16;
+    static final int EVENTO_METEOROS = 17;
+    static final int EVENTO_TROCA = 18;
+    static final int EVENTO_SERPENTE = 19;
+    static final int EVENTO_VENTO = 20;
+    static final int EVENTO_CARGA = 21;
+    static final int EVENTO_ZONA_LENTA = 22;
+
+    private static final String ARQUIVO = "configuracoes_partida";
+    private static final String CHAVE_PONTOS = "pontos_maximos";
+    private static final String CHAVE_VELOCIDADE = "nivel_velocidade";
+    private static final String CHAVE_MODO_RAPIDO = "modo_rapido";
+    private static final String CHAVE_CURVAS = "curvas_atracao";
+    private static final String CHAVE_VARIACOES = "variacoes_velocidade";
+    private static final String CHAVE_EVENTO = "evento_";
+
+    private ConfiguracoesJogo() {
+    }
+
+    static int obterDificuldadeIA(Context context) {
+        return Math.max(0, Math.min(3, preferencias(context).getInt("dificuldade_ia", 1)));
+    }
+
+    static String nomeDificuldadeIA(int nivel) {
+        return new String[]{"FÁCIL", "NORMAL", "DIFÍCIL", "INSANO"}[Math.max(0, Math.min(3, nivel))];
+    }
+
+    static int obterPontosMaximos(Context context) {
+        return preferencias(context).getInt(CHAVE_PONTOS, 10);
+    }
+
+    static int obterNivelVelocidade(Context context) {
+        return preferencias(context).getInt(CHAVE_VELOCIDADE, 1);
+    }
+
+    static float obterMultiplicadorVelocidade(Context context) {
+        switch (obterNivelVelocidade(context)) {
+            case 0:
+                return 0.82f;
+            case 2:
+                return 1.22f;
+            case 3:
+                return 1.48f;
+            default:
+                return 1f;
+        }
+    }
+
+    static String obterNomeVelocidade(int nivel) {
+        switch (nivel) {
+            case 0:
+                return "CALMA  •  x0.82";
+            case 2:
+                return "RÁPIDA  •  x1.22";
+            case 3:
+                return "INSANA  •  x1.48";
+            default:
+                return "NORMAL  •  x1.00";
+        }
+    }
+
+    static boolean obterSonsAtivos(Context context) {
+        return preferencias(context).getBoolean("sons_ativos", true);
+    }
+
+    static boolean obterModoRapido(Context context) {
+        return preferencias(context).getBoolean(CHAVE_MODO_RAPIDO, false);
+    }
+
+    static boolean obterCurvasAtivas(Context context) {
+        return preferencias(context).getBoolean(CHAVE_CURVAS, true);
+    }
+
+    static boolean obterVariacoesAtivas(Context context) {
+        return preferencias(context).getBoolean(CHAVE_VARIACOES, true);
+    }
+
+    static boolean[] obterEventosAtivos(Context context) {
+        SharedPreferences preferencias = preferencias(context);
+        boolean[] eventos = new boolean[TOTAL_EVENTOS];
+
+        for (int i = 0; i < eventos.length; i++) {
+            eventos[i] = i != 4 && preferencias.getBoolean(CHAVE_EVENTO + i, true);
+        }
+
+        return eventos;
+    }
+
+    static void salvar(
+            Context context,
+            int pontosMaximos,
+            int nivelVelocidade,
+            int dificuldadeIA,
+            boolean modoRapido,
+            boolean sonsAtivos,
+            boolean curvasAtivas,
+            boolean variacoesAtivas,
+            boolean[] eventosAtivos
+    ) {
+        SharedPreferences.Editor editor = preferencias(context).edit()
+                .putInt(CHAVE_PONTOS, Math.max(5, Math.min(30, pontosMaximos)))
+                .putInt("dificuldade_ia", Math.max(0, Math.min(3, dificuldadeIA)))
+                .putInt(CHAVE_VELOCIDADE, Math.max(0, Math.min(3, nivelVelocidade)))
+                .putBoolean(CHAVE_MODO_RAPIDO, modoRapido)
+                .putBoolean("sons_ativos", sonsAtivos)
+                .putBoolean(CHAVE_CURVAS, curvasAtivas)
+                .putBoolean(CHAVE_VARIACOES, variacoesAtivas);
+
+        for (int i = 0; i < TOTAL_EVENTOS; i++) {
+            boolean ativo = i != 4 && i < eventosAtivos.length && eventosAtivos[i];
+            editor.putBoolean(CHAVE_EVENTO + i, ativo);
+        }
+
+        editor.apply();
+    }
+
+    private static SharedPreferences preferencias(Context context) {
+        return context.getSharedPreferences(ARQUIVO, Context.MODE_PRIVATE);
+    }
+}

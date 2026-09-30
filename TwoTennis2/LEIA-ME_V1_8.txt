@@ -1,0 +1,32 @@
+TwoTennis2 v1.8 — eventos e final especial
+
+Novos eventos selecionáveis:
+Rebobinar, Bola relógio, Marca de caça, Salto dimensional, Ricochete crítico,
+Meteoros, Troca de almas, Bola serpente, Vento solar, Bola com carga e Zona câmera lenta.
+
+O final especial NÃO é um botão nas configurações.
+Quando todos os eventos atualmente selecionados tiverem ocorrido pelo menos uma vez
+na mesma partida, o PRÓXIMO evento agendado inicia o final.
+Repetições não contam como novos tipos. A contagem continua entre rodadas e zera
+ao reiniciar a partida. Nenhum evento selecionado = sem final.
+A partida ainda pode terminar pela pontuação máxima antes de atingir essa condição.
+Eventos que precisam de duas bolas só podem ocorrer quando houver duas bolas.
+Habilite duplicação/duplicação em cadeia para que esses eventos possam acontecer.
+
+Final: placar e física congelam, zoom de 1,2 segundo, tela branca com
+“De que vale tudo isso? Jesus está voltando.”, fanfarra de trombeta original,
+e fechamento das telas do aplicativo após 8 segundos. Sem matar o processo Android.
+Os sons normais respeitam a opção de áudio. A trombeta faz parte do final obrigatório.
+
+Desempenho: histórico circular de 64 posições por bola, três meteoros reutilizados,
+sem novos bitmaps por quadro; mantém modo rápido e limite de bolas existente.
+Não é possível garantir 60/120 FPS sem medir no aparelho.
+
+Como atualizar no GitHub:
+Extraia este ZIP. Na raiz do repositório coloque o CONTEÚDO da pasta TwoTennis2
+(app, gradle, gradlew, settings.gradle.kts etc.), incluindo .github/workflows.
+Faça commit e abra Actions. O fluxo gera o APK debug nos artefatos.
+
+Validação nesta entrega: sintaxe Java, testes das classes de histórico e registro,
+XML e referências de recursos. APK/execução Android precisam ser verificados no
+GitHub Actions/Android Studio; não há Android SDK disponível neste ambiente.
