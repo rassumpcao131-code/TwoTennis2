@@ -1,0 +1,81 @@
+TWOTENNIS2 - VERSAO 1.4 PERFORMANCE
+===================================
+
+O que foi ajustado
+------------------
+- Corrigido o erro de compilacao da fonte Pixelify Sans com os certificados
+  exigidos pelo provedor de fontes do Google Play.
+- Partida encerrada assim que um dos lados chega a 10 pontos.
+- Tela de fim de jogo com vencedor, placar final e reinicio por toque.
+- A rodada so reinicia depois que todas as bolas tiverem saído da arena.
+- A velocidade cresce conforme o tempo da rodada atual.
+- Cada bola ainda recebe variacoes aleatorias de velocidade e eventos de turbo.
+- Curvas fortes com ponto invisivel de atracao e impulso orbital.
+- Colisao elastica real entre bolas, com subpassos para evitar que atravessem
+  umas às outras em alta velocidade.
+- Visual do campo melhorado: lado superior em ciano e inferior em rosa.
+- Arena neon com grade em perspectiva, estrelas de energia e moldura iluminada.
+- Barras laterais mostram visualmente o aumento da intensidade da rodada.
+- Rastros RGB maiores e mais brilhantes conforme a velocidade aumenta.
+- Ondas visuais revelam temporariamente o ponto invisivel de atracao.
+- Particulas aparecem em impactos com paredes, raquetes e outras bolas.
+- Raquetes arredondadas com varias camadas de brilho e reflexo.
+- Flash breve de impacto nas rebatidas e colisoes mais fortes.
+- Congelamento quantico: a bola para, mostra a direcao e dispara quase 2x mais rapida.
+- Orbita critica: a atracao cresce, acelera a bola e a libera em alta velocidade.
+- Duplicacao em cadeia: qualquer clone pode se duplicar, ate o limite de 5 bolas.
+- Portais temporarios transportam a bola e alteram levemente sua direcao.
+- Fusao junta duas bolas numa bola maior, que se separa ao bater na raquete.
+- Ligacao eletrica conecta duas bolas e funciona como um estilingue energetico.
+- Bola fantasma fica quase invisivel, mas conserva um rastro visivel.
+- Supernova carrega, atrai as bolas e depois as arremessa em todas as direcoes.
+- Fluxo corrigido: Menu -> escolha de 1 ou 2 jogadores -> jogo.
+- Sons curtos agora liberam o MediaPlayer corretamente.
+
+Nova arena visual - etapa 1
+---------------------------
+- Fundo espacial redesenhado com gradientes azul e magenta em camadas.
+- Quatro nebulosas suaves, filamentos animados e estrelas com cintilacao.
+- Fragmentos espaciais discretos nas bordas para aumentar a profundidade.
+- Grade holografica animada convergindo para o centro da partida.
+- Linha central dividida em energia ciano e rosa, com brilho independente.
+- Moldura futurista com cantos chanfrados e tres camadas de neon.
+- Quatro modulos laterais segmentados que acompanham a intensidade da rodada.
+- Faixas de varredura percorrem as laterais conforme o jogo acelera.
+- Todos os elementos sao desenhados pelo Canvas e se adaptam a resolucao.
+- Bolas, eventos e fisica da versao 1.2 foram preservados nesta etapa.
+
+Versao 1.4 Performance e configuracoes
+--------------------------------------
+- A arena completa agora e pre-renderizada em cache e nao redesenhada a cada frame.
+- O cache e atualizado somente quando o nivel visual da partida muda.
+- Gradientes, estrelas, grade, fragmentos e moldura mantem o estilo da versao 1.3.
+- Eliminadas alocacoes repetidas na cor RGB das bolas e na atualizacao do HUD.
+- Calculo de arrasto das particulas e reaproveitado dentro do mesmo frame.
+- Limite de subpassos da fisica foi ajustado sem remover as colisoes entre bolas.
+- Nova tela Configuracoes da Arena acessivel pelo menu inicial.
+- Pontuacao maxima ajustavel de 5 a 30 pontos.
+- Quatro velocidades iniciais: calma, normal, rapida e insana.
+- Cada um dos 11 eventos pode ser ligado ou desligado individualmente.
+- Curvas de atracao e variacoes aleatorias de velocidade tambem sao opcionais.
+- Modo rapido usa cache menor, 45 FPS estaveis, menos particulas e rastros reduzidos.
+- As configuracoes ficam salvas para as proximas partidas.
+
+Compilacao pelo celular
+-----------------------
+- Incluido workflow do GitHub Actions para gerar o APK automaticamente.
+- A compilacao pode ser iniciada manualmente pela aba Actions.
+- O APK de teste fica disponivel como o artefato TwoTennis2-APK.
+- Consulte GERAR_APK_PELO_CELULAR.txt para o passo a passo completo.
+
+Como abrir
+----------
+1. Extraia o ZIP.
+2. Abra a pasta TwoTennis2 no Android Studio.
+3. Aguarde o Gradle Sync.
+4. Execute em um aparelho/emulador com Android 7.0 ou superior.
+
+Observacao
+----------
+As pastas de cache e build nao fazem parte do ZIP, pois o Android Studio as
+gera novamente para a maquina onde o projeto for aberto.
