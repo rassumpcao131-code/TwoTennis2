@@ -1,0 +1,24 @@
+TWOTENNIS2 1.6 - ARENA
+
+CPU: Facil, Normal, Dificil e Insano nas configuracoes.
+Dificuldade altera reacao, velocidade, erro e antecipacao da bola.
+Novo menu neon responsivo, sem animacoes pesadas.
+Botao de tres barras no canto superior direito da arena.
+Configuracoes pausam o jogo e preservam o placar ao voltar.
+Salvar e voltar aplica meta, velocidade inicial, dificuldade e eventos.
+Modo rapido sera aplicado ao iniciar uma partida pela tela inicial.
+Evento bola fantasma removido. Preferencias dos demais eventos preservadas.
+Corrigida escala de medidas no modo rapido e retomada da superficie.
+
+COMO GERAR
+Extraia este ZIP. Envie o CONTEUDO da pasta TwoTennis2 para seu repositorio,
+incluindo app, gradle, gradlew e os arquivos .kts.
+Mantenha .github/workflows/gerar-apk.yml na raiz do repositorio.
+O workflow tambem encontra o projeto se ele estiver numa subpasta.
+Baixe TwoTennis2-APK na execucao concluida em Actions.
+
+VALIDACAO
+Sintaxe Java, XML e referencias de IDs verificadas.
+Build completo e teste de FPS precisam ocorrer no GitHub/Android;
+o ambiente de edicao nao possui Android SDK/Gradle baixados.
+Meta de renderizacao 60 FPS; desempenho depende do aparelho.
